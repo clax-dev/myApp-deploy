@@ -3,19 +3,21 @@ import { User } from '../models/user';
 
 @Service()
 export class Users {
-  private apiUsers: User[] | null = null;
-  private createdUsers: User[] = [];
+  private users: User[] = [
+    { id: 1, name: 'Ana', email: 'ana@test.com', active: true },
+    { id: 2, name: 'Luis', email: 'luis@test.com', active: false },
+    { id: 3, name: 'Carlos', email: 'carlos@test.com', active: true }
+  ];
   private deletedIds = new Set<number>();
   private nextId = 1000;
 
   async getUsers(): Promise<User[]> {
-    if (!this.apiUsers) {
-      const response = await fetch('https://dummyjson.com/users');
-      const data = await response.json();
-      this.apiUsers = data.users;
-    }
-    const all = [...this.apiUsers!, ...this.createdUsers];
-    return all.filter(u => !this.deletedIds.has(u.id));
+    return new Promise(resolve => {
+      setTimeout(() => {
+        const activos = this.users.filter(u => !this.deletedIds.has(u.id));
+        resolve(activos);
+      }, 500);
+    });
   }
 
   async getActiveUsers(): Promise<User[]> {
@@ -35,7 +37,7 @@ export class Users {
       email,
       active: true,
     };
-    this.createdUsers.push(newUser);
+    this.users.push(newUser);
     return newUser;
   }
 
