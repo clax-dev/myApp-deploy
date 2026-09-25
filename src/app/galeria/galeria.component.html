@@ -5,10 +5,11 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  
   <p>{{ descripcion }}</p>
 
   <div class="image-container">
     <img [src]="rutaImagenLocal" alt="Imagen cargada localmente" />
   </div>
+
+  <ion-button class="volver-btn" routerLink="/home">Volver</ion-button>
 </ion-content>

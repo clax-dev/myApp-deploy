@@ -1,0 +1,29 @@
+.user-row {
+  --inner-padding-end: 8px;
+
+  .delete-btn {
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+    pointer-events: none;
+  }
+
+  &:hover .delete-btn {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.crear-usuario {
+  margin-top: 24px;
+
+  ion-input {
+    margin-bottom: 10px;
+  }
+}
+
+.volver-btn {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 10;
+}

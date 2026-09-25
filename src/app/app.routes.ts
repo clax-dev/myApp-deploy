@@ -10,11 +10,14 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
-
   {
-  path: 'galeria',
-  loadComponent: () => import('./galeria/galeria.component').then(m => m.GaleriaComponent),
-},
-
+    path: 'galeria',
+    loadComponent: () =>
+      import('./galeria/galeria.component').then((m) => m.GaleriaComponent),
+  },
+  {
+    path: 'users',
+    loadComponent: () =>
+      import('./pages/users/users.component').then((m) => m.UsersComponent),
+  },
 ];
-

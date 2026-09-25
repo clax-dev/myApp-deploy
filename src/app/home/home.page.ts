@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular';
-import { IonButton } from '@ionic/angular';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/angular';
 import { RouterLink } from '@angular/router';
 
 @Component({

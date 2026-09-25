@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Usuarios Activos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-spinner *ngIf="loading"></ion-spinner>
+
+  <ion-list *ngIf="!loading">
+    <ion-item *ngFor="let user of users" class="user-row">
+      <ion-label>
+        <h2>{{ user.name }}</h2>
+        <p>{{ user.email }}</p>
+      </ion-label>
+
+      <ion-button class="delete-btn" fill="clear" color="danger" (click)="eliminar(user.id)">
+        Eliminar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <div class="crear-usuario">
+    <ion-input
+      label="Nombre"
+      labelPlacement="floating"
+      fill="outline"
+      [(ngModel)]="nombre"
+      placeholder="Nombre del usuario">
+    </ion-input>
+
+    <ion-input
+      label="Email"
+      labelPlacement="floating"
+      fill="outline"
+      [(ngModel)]="email"
+      placeholder="Email del usuario">
+    </ion-input>
+
+    <ion-button expand="block" (click)="crearUsuario()">
+      Crear usuario
+    </ion-button>
+
+    <p *ngIf="mensaje">{{ mensaje }}</p>
+  </div>
+
+  <ion-button class="volver-btn" routerLink="/home">Volver</ion-button>
+</ion-content>
